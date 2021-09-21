@@ -76,7 +76,7 @@ def verify_ages(groups: List[List[int]]) -> List[bool]:
                     exact50 = True
                 if j>70:
                     plus70 = True
-            if (plus70 is True and exact50 is True):
+            if (plus70 and exact50):
                 listBool.append(False)
         
         else:
