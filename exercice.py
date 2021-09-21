@@ -6,29 +6,84 @@ from typing import List
 
 
 def convert_to_absolute(number: float) -> float:
-    return 0
+    if number<0:
+        number *= -1
+    return number
 
 
 def use_prefixes() -> List[str]:
     prefixes, suffixe = 'JKLMNOPQ', 'ack'
-
-    return [""]
+    list = []
+    for char in prefixes :
+        list.append(char+suffixe)
+    return list
 
 
 def prime_integer_summation() -> int:
-    return 0
+    somme = 2
+    for number in range(2, 101) :
+        for i in range(2, number):
+            for i in range(2,number):
+                if (number % i) != 0:
+                    if(number==i+1):
+                        somme += number
+                        continue
+                else :
+                    break
+    return somme
 
 
 def factorial(number: int) -> int:
-    return 0
+    factoriel = 1
+    for i in range(1, number + 1) :
+        factoriel *= i
+    return factoriel
 
 
 def use_continue() -> None:
+    for number in range(1, 11):
+        if number == 5:
+            continue
+        print(number)
     pass
 
 
 def verify_ages(groups: List[List[int]]) -> List[bool]:
-    return []
+    listBool=[]
+    indexInt=0
+    for i in groups:
+        if len(i)>10 or len(i)<=3:
+            listBool.append(False)
+            continue
+
+        if len(listBool)==indexInt:
+            for j in i:
+                if j==25:
+                    listBool.append(True)
+                    break
+        
+        if len(listBool)==indexInt:
+            for j in i:
+                if j<18:
+                    listBool.append(False)
+                    break
+
+        if len(listBool)==indexInt:
+            plus70 = False
+            exact50 = False
+            for j in i:
+                if j==50:
+                    exact50 = True
+                if j>70:
+                    plus70 = True
+            if (plus70 is True and exact50 is True):
+                listBool.append(False)
+        
+        else:
+            listBool.append(True)
+        i=+1
+            
+    return listBool
 
 
 def main() -> None:
